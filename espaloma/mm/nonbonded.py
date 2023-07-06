@@ -155,7 +155,7 @@ def lj_9_6(x, sigma, epsilon):
     )
 
 
-def coulomb(x, chi, q, k_e=K_E):
+def coulomb(x, mu, q, k_e=K_E):
     """Columb interaction without cutoff.
 
     Parameters
@@ -182,4 +182,4 @@ def coulomb(x, chi, q, k_e=K_E):
         and nonbonded enumerations.
 
     """
-    return 0.5 * k_e * chi * q / x
+    return 0.5 * k_e * mu * q / x
