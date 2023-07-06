@@ -237,6 +237,7 @@ def apply_coulomb(nodes, scaling=1.0, suffix=""):
         % suffix: scaling
         * esp.mm.nonbonded.coulomb(
             x=nodes.data["x"],
+            chi=nodes.data["chi"],
             q=nodes.data["q"],
         )
     }

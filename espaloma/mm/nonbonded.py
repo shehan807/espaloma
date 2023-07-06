@@ -155,7 +155,7 @@ def lj_9_6(x, sigma, epsilon):
     )
 
 
-def coulomb(x, q, k_e=K_E):
+def coulomb(x, chi, q, k_e=K_E):
     """Columb interaction without cutoff.
 
     Parameters
@@ -163,6 +163,10 @@ def coulomb(x, q, k_e=K_E):
     x : `torch.Tensor`, shape=`(batch_size, 1)` or `(batch_size, batch_size, 1)`
         Distance between atoms.
 
+    chi : `torch.Tensor`,
+        `shape=(batch_size, 1) or `(batch_size, batch_size, 1)`
+        Charge product scaling scaling parameter for mean field treatment.
+    
     q : `torch.Tensor`,
         `shape=(batch_size, 1) or `(batch_size, batch_size, 1)`
         Product of charge.
@@ -178,4 +182,4 @@ def coulomb(x, q, k_e=K_E):
         and nonbonded enumerations.
 
     """
-    return 0.5 * k_e * q / x
+    return 0.5 * k_e * chi * q / x
